@@ -18,6 +18,12 @@ func sayHello(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(&res)
 }
 
+func getProducts(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(&products)
+}
+
 func jsonEncode(w io.Writer, data interface{}) {
 	json.NewEncoder(w).Encode(data)
 }
